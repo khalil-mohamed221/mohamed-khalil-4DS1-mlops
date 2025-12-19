@@ -106,7 +106,7 @@ def train_model(X_train, y_train, categorical_indices):
     model = CatBoostRegressor(
         iterations=2000,
         depth=8,
-        learning_rate=0.04,
+        learning_rate=0.03,
         loss_function="RMSE",
         l2_leaf_reg=12,
         random_strength=2,
