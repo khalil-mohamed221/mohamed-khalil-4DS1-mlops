@@ -1,0 +1,17 @@
+# Virtual environment
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# ML artifacts
+models/
+mlruns/
+catboost_info/
+
+# Data (optional)
+data/
+
+# OS files
+.DS_Store
