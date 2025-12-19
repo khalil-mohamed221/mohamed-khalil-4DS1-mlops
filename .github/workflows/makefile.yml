@@ -35,7 +35,19 @@ jobs:
       - name: Run tests
         run: make test
 
-      # 6) Build Docker image (ONLY if CI passed)
+       # 6) Log in to Docker Hub
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      # 7) Build Docker image
       - name: Build Docker image
         run: |
-          docker build -t house-price-api:latest .
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/mohamed_khalil_4ds1_mlops:latest .
+
+      # 8) Push Docker image
+      - name: Push Docker image to Docker Hub
+        run: |
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/mohamed_khalil_4ds1_mlops:latest
