@@ -104,7 +104,7 @@ def train_model(X_train, y_train, categorical_indices):
     print("Training CatBoost model...")
 
     model = CatBoostRegressor(
-        iterations=1500,
+        iterations=2000,
         depth=8,
         learning_rate=0.04,
         loss_function="RMSE",
